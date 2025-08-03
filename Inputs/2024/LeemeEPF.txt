@@ -1,0 +1,47 @@
+#########################################################################################################################			
+INSTITUTO NACIONAL DE ESTADÍSTICA	www.ine.es		
+			
+FICHEROS DE MICRODATOS			
+	Encuesta Encuesta de Presupuestos Familiares_Fichero Miembros_(EPF)		
+	AÑO periodo		
+			
+Leeme.txt 			
+############################################################			
+			
+Este directorio contiene:			
+			
+1- Este archivo (leeme.txt)			
+2- Un fichero Excel con el diseño de registro de los microdatos ( "dr_siglasfichero_periodo.xlsx")			
+3- El fichero de microdatos en formato txt, ancho fijo ("md_siglasfichero_periodo.txt"). La longitud de cada			
+	   variable se puede consultar en el fichero Excel del diseño de registro "dr_siglasfichero_periodo.xlsx"		
+4- Cinco directorios: CSV, R, SAS, SPSS, STATA			
+			
+Contenido de los directorios:			
+			
+1- El directorio  CSV contiene:			
+	a) El fichero de microdatos en formato CSV, el separador es la TABULACIÓN ("siglasfichero_periodo.csv")		
+			
+2- El directorio R contiene:			
+	a) Programa en R que lee los microdatos ("MD_siglasfichero_periodo.R")		
+	Necesita los ficheros del directorio raíz  ("..._siglasfichero_periodo...") para su correcto funcionamiento		
+	b) Archivo de instrucciones para R (LeemeR.txt)		
+			
+3- El directorio SAS contiene:			
+	a) Fichero de microdatos en formato SAS, con los datos codificados (es decir,		
+	   las variables cualitativas son un código numérico, por ejemplo '40' en lugar		
+	   de 'Segovia') ("siglasfichero_periodo.sas7bdat")		
+	b) Programa SAS con las sentencias para dar formato a las variables del fichero		
+	   de microdatos anterior ("siglasfichero_periodo_conFormato.sas")		
+			
+4- El directorio SPSS contiene:			
+	a) Fichero de microdatos en formato SPSS, con los diccionarios de las variables		
+	   integrados ("siglasfichero_periodo.sav")		
+	   		
+5- El directorio STATA contiene:			
+	a) Fichero de microdatos en formato STATA, sin los diccionarios de las variables		
+	   integrados ("siglasfichero_periodo.dta"). Las etiquetas las variables y valores pueden consultarse en el		
+	   fichero Excel del diseño de registro "dr_siglasfichero_periodo.xlsx" que		
+	   está en la misma carpeta que este fichero "Leeme.txt"		
+	   		
+			
+#########################################################################################################################			
