@@ -980,4 +980,6 @@ if __name__ == '__main__':
     print("="*60 + "\n")
 
     port = int(os.getenv("PORT", 8050))
-    app.run(debug=True, host='127.0.0.1', port=port)
+    host = os.getenv("HOST", "127.0.0.1")
+    debug_mode = os.getenv("DEBUG_MODE", False)
+    app.run(host=host, port=port, debug=debug_mode, )
