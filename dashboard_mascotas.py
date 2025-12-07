@@ -6,7 +6,8 @@ Encuesta de Presupuestos Familiares - INE España
 Ejecutar con: python dashboard_mascotas.py
 Acceder en: http://localhost:8050
 """
-
+import os
+from dotenv import load_dotenv
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
@@ -19,6 +20,7 @@ import numpy as np
 # ============================================================================
 # CONFIGURACIÓN Y CARGA DE DATOS
 # ============================================================================
+load_dotenv()
 
 # Leer datos
 print("Cargando datos...")
@@ -977,4 +979,5 @@ if __name__ == '__main__':
     print("\n💡 Usa Ctrl+C para detener el servidor\n")
     print("="*60 + "\n")
 
-    app.run(debug=True, host='127.0.0.1', port=8050)
+    port = int(os.getenv("PORT", 8050))
+    app.run(debug=True, host='127.0.0.1', port=port)
