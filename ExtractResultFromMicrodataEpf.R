@@ -88,14 +88,17 @@ rename_using_epf_labels <- function(hogar) {
     return(hogar)
 }
 
-pathGastos <- "Inputs\\2024\\R\\EPFgastos_2024.RData"
-pathHogar <- "Inputs\\2024\\R\\EPFhogar_2024.RData"
+pathGastos <- "./Inputs/2024/R/EPFgastos_2024.RData"
+pathHogar <- "./Inputs/2024/R/EPFhogar_2024.RData"
 
 load(pathGastos)
 Gastos <- Microdatos
 MetadataGastos <- Metadatos
 
 GastosOnlyPets <- subset(Microdatos, CODIGO %in% c('09321','09322','09450'))
+#INE discussion 24: get and filter by real spending
+GastosOnlyPets <- GastosOnlyPets %>% mutate(GastoEfectivo = GASTO * (1- PORCENDES/100) * (1- PORCENIMP/100))
+GastosOnlyPets <- GastosOnlyPets %>% filter(GastoEfectivo > 0)
 
 load(pathHogar)
 Hogar <- Microdatos
