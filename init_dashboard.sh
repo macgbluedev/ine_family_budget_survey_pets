@@ -40,16 +40,24 @@ if [ ! -f "dashboard/data/gastos_16a25.csv" ] || [ ! -f "dashboard/data/proporci
     python3 dashboard/prep_data.py
 fi
 
+# Puerto y host: Render (y otros PaaS) inyectan $PORT y requieren escuchar en
+# 0.0.0.0 para que detecten el puerto abierto. En local, por defecto 8501.
+PORT="${PORT:-8501}"
+HOST="${HOST:-0.0.0.0}"
+
 echo ""
 echo "🚀 Iniciando dashboard..."
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "📊 Dashboard disponible en:"
-echo "   👉 http://localhost:8501"
+echo "   👉 http://localhost:${PORT}"
 echo ""
 echo "💡 Presiona Ctrl+C para detener el servidor"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
 # Ejecutar dashboard
-python3 -m streamlit run dashboard/app.py
+python3 -m streamlit run dashboard/app.py \
+    --server.port="$PORT" \
+    --server.address="$HOST" \
+    --server.headless=true
