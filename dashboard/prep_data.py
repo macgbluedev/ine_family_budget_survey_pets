@@ -7,8 +7,8 @@ Uso:  python3 dashboard/prep_data.py
 
 Fuentes:
   - 2016-2024: hojas `TablaMaestra` de
-      reports/ComparativaMascotas16a24.xlsm            -> gasto por hogar x código
-      reports/ComparativaMascotas16a24Proporcion.xlsm  -> clasificación por hogar
+      reports/2024/ComparativaMascotas16a24.xlsm            -> gasto por hogar x código
+      reports/2024/ComparativaMascotas16a24Proporcion.xlsm  -> clasificación por hogar
   - 2025: Outputs/2025/
       EPFOnlyPetsResult.xlsx            -> gasto por hogar x código
       EPFOnlyPetsProportionResult.xlsx -> clasificación por hogar
@@ -25,7 +25,7 @@ import sys
 import pandas as pd
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-REPORTS_DIR = os.path.join(REPO_ROOT, "reports")
+REPORTS_DIR = os.path.join(REPO_ROOT, "reports", "2024")
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 
 GASTOS_XLSM = os.path.join(REPORTS_DIR, "ComparativaMascotas16a24.xlsm")

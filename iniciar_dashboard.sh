@@ -8,7 +8,7 @@ echo "=========================================="
 echo ""
 
 # Verificar que existen los datos de origen
-if [ ! -f "reports/ComparativaMascotas16a24.xlsm" ]; then
+if [ ! -f "reports/2024/ComparativaMascotas16a24.xlsm" ]; then
     echo "❌ ERROR: No se encuentran los Excel en reports/"
     echo "   Por favor, asegúrate de estar en el directorio correcto."
     exit 1
