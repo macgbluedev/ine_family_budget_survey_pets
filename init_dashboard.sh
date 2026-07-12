@@ -42,7 +42,7 @@ fi
 
 # Puerto y host: Render (y otros PaaS) inyectan $PORT y requieren escuchar en
 # 0.0.0.0 para que detecten el puerto abierto. En local, por defecto 8501.
-PORT="${PORT:-8501}"
+PORT="${PORT:-10000}"
 HOST="${HOST:-0.0.0.0}"
 
 echo ""
