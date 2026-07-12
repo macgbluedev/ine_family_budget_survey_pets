@@ -21,11 +21,32 @@ Luego abre en tu navegador: **http://localhost:8050**
 
 ```bash
 # Ejecutar análisis completo
-Rscript analisis_comparativa_mascotas.R
+Rscript src/analisis_comparativa_mascotas.R
 
 # Ver PDFs generados
 open Outputs/analisis_comparativa_mascotas_22_24.pdf
 ```
+
+### Opción 3: Extraer gasto en mascotas de un año concreto
+
+`src/ExtractResultFromMicrodataEpf.R` es un único script parametrizado
+(directorio de entrada, directorio de salida) que reemplaza a los antiguos
+scripts específicos por año. Requiere que `<input_dir>/R/` contenga
+`EPFgastos_<año>.RData` y `EPFhogar_<año>.RData` (ya convertidos desde los
+`.txt` de INE con `src/Convert txt file to r dataset.R`).
+
+```bash
+# 2024
+Rscript src/ExtractResultFromMicrodataEpf.R Inputs/2024 Outputs/2024
+
+# 2025
+Rscript src/ExtractResultFromMicrodataEpf.R Inputs/2025 Outputs/2025
+```
+
+Genera en `<output_dir>/`: `EPFOnlyPetsResult.xlsx` (detalle de gasto por
+hogar x código) y `EPFOnlyPetsProportionResult.xlsx` (clasificación por
+hogar). Estos ficheros son los que consume `dashboard/prep_data.py` para el
+año más reciente.
 
 ---
 
@@ -34,7 +55,7 @@ open Outputs/analisis_comparativa_mascotas_22_24.pdf
 - **[dashboard_mascotas.py](dashboard_mascotas.py)** - Dashboard interactivo con Plotly+Dash
 - **[INSTRUCCIONES_DASHBOARD.md](INSTRUCCIONES_DASHBOARD.md)** - Guía completa del dashboard
 - **[INFORME_ANALISIS_DUPLICACION_MASCOTAS.md](INFORME_ANALISIS_DUPLICACION_MASCOTAS.md)** - Informe ejecutivo completo
-- **[analisis_comparativa_mascotas.R](analisis_comparativa_mascotas.R)** - Script de análisis en R
+- **[src/analisis_comparativa_mascotas.R](src/analisis_comparativa_mascotas.R)** - Script de análisis en R
 
 ---
 
